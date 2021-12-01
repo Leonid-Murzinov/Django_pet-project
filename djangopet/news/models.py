@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import redirect
 
 class Articles(models.Model):
     title = models.CharField('Название', max_length=50)
@@ -8,6 +9,9 @@ class Articles(models.Model):
 
     def __str__(self):
         return f'Новость: {self.title}'
+
+    def get_absolute_url(self):
+        return f'/news/{self.id}'
 
     class Meta:
         verbose_name = 'Новость'
