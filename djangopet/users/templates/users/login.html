@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}Войти в аккаунт{% endblock %}
+
+{% block content%}
+<div class="features">
+    <h1>Добавление статьи</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}} <br>
+        <span>{{ error }}</span>
+        <button class="btn btn-success" type="submit">Войти в аккаунт</button>
+    </form>
+</div>
+{% endblock %}
