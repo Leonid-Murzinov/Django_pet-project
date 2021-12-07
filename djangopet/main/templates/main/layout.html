@@ -36,6 +36,17 @@
             </a>
         </ul>
     </aside>
+    <header>
+        {% if request.user.is_authenticated %}
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link active" aria-current="page">Выйти</a></li>
+            {% else %}
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="{% url 'login' %}" class="nav-link active" aria-current="page">Войти</a>
+                </li>
+            </ul>
+            {% endif %}
+    </header>
     <main>
         {% block content %}
         {% endblock %}

@@ -4,10 +4,10 @@
 
 {% block content%}
 <div class="features">
-    <h1>Добавление статьи</h1>
+    <h1>Войти в аккаунт</h1>
     <form method="post">
         {% csrf_token %}
-        {{form.as_p}} <br>
+        {{form.as_p}}
         <span>{{ error }}</span>
         <button class="btn btn-success" type="submit">Войти в аккаунт</button>
     </form>
