@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 
 class Profile(models.Model):
     
@@ -8,10 +8,7 @@ class Profile(models.Model):
         ('male', 'мужчина')
     )
     
-    
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     gender = models.CharField(choices=gender, max_length=50)
     avatar = models.ImageField(upload_to = 'djangopet/media/images')
 
@@ -19,3 +16,4 @@ class Profile(models.Model):
         return self.last_name
         
 
+    
